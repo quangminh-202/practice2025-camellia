@@ -25,7 +25,7 @@ for mode in MODES:
             corrupt_file.write(corrupted)
         try:
             decrypted = decrypt_camellia(mode, key, iv, corrupted)
-        except Exception:
+        except Exception:   
             decrypted = b""
 
         m = sum(
