@@ -34,8 +34,6 @@ for mode in MODES:
         byte_indices = [random.randint(0, BLOCK_SIZE - 1) for _ in corrupted_blocks]
 
         corrupted = corrupt_ciphertext(ciphertext, BLOCK_SIZE, mode, corrupted_blocks, byte_indices)
-        with open(f"data/{mode}_corrupted_{n}.bin", "wb") as corrupt_file:
-            corrupt_file.write(corrupted)
 
         try:
             decrypted = decrypt_camellia(mode, key, iv_to_use, corrupted)
